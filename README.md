@@ -79,6 +79,10 @@ Funções principais:
 - conta no tavily
 
 ## SETUP DO AMBIENTE
+- realizar o git clone do projeto
+``` bash
+git clone https://github.com/athosarnourleal/processo-seletivo-2026.git
+```
 - preencher o **.env** no mesmo formato do **.env_example**
 ``` env
 # ai agents
@@ -90,12 +94,13 @@ OPENAI_API_KEY='insira sua key aqui'
 # web search
 TAVILY_API_KEY='insira sua key aqui'
 ```
-- crie o venv e baixar os requirements nele
+- criar o venv e baixar os requirements nele
 ``` bash
 # criar e acessar venv
 python3 -m venv venv
 source venv/bin/activate
-
+```
+```bash
 # baixar requirements
 pip install -r ./requirements.txt
 ```
