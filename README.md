@@ -79,9 +79,10 @@ Funções principais:
 - conta no tavily
 
 ## SETUP DO AMBIENTE
-- realizar o git clone do projeto
+- realizar o git clone do projeto e entrar na pasta principal
 ``` bash
 git clone https://github.com/athosarnourleal/processo-seletivo-2026.git
+cd 
 ```
 - preencher o **.env** no mesmo formato do **.env_example**
 ``` env
