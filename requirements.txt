@@ -20,7 +20,6 @@ beautifulsoup4==4.15.0
 bleach==6.4.0
 blinker==1.9.0
 brotlicffi==1.2.0.0
-build==1.3.0
 cachetools==6.2.6
 certifi==2026.6.17
 cffi==2.0.0
@@ -45,7 +44,6 @@ executing==2.2.1
 fastapi==0.138.0
 fastapi-cli==0.0.24
 fastar==0.11.0
-fastjsonschema==2.21.2
 filelock==3.29.4
 filetype==1.2.0
 flatbuffers==25.12.19
@@ -54,7 +52,6 @@ fsspec==2026.6.0
 gitdb==4.0.12
 GitPython==3.1.50
 gmpy2==2.2.2
-google-auth==3.0.0.dev0
 google-genai==1.75.0
 googleapis-common-protos==1.75.0
 grpcio==1.78.0
@@ -96,7 +93,6 @@ jupyterlab==4.6.0a5
 jupyterlab_pygments==0.3.0
 jupyterlab_server==2.28.0
 jupyterlab_widgets==3.0.16
-kubernetes==36.0.2
 langchain==1.3.11
 langchain-core==1.4.8
 langchain-google-genai==4.2.2
@@ -121,10 +117,7 @@ matplotlib-inline==0.2.2
 mdurl==0.1.2
 mistune==3.2.1
 mkl_fft==2.2.0
-mkl_random==1.3.0
-mkl-service==2.5.2
 mmh3==5.0.1
-mpmath==1.4.0b4
 multidict==6.7.1
 mypy_extensions==1.1.0
 narwhals==2.21.0
@@ -249,7 +242,6 @@ websocket-client==1.9.0
 websockets==15.0.1
 widgetsnbextension==4.0.15
 wrapt==2.2.1
-xxhash==3.7.0
 yarl==1.24.2
 zipp==3.23.1
 zstandard==0.25.0
