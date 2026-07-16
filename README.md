@@ -82,7 +82,7 @@ Funções principais:
 - realizar o git clone do projeto e entrar na pasta principal
 ``` bash
 git clone https://github.com/athosarnourleal/processo-seletivo-2026.git
-cd 
+cd processo-seletivo-2026
 ```
 - preencher o **.env** no mesmo formato do **.env_example**
 ``` env
