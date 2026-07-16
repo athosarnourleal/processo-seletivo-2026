@@ -1,0 +1,8 @@
+{
+    "raw_query_input": "quantos anos tinha o jogador de Futebol pel\u00e9 quando ele morreu?",
+    "query_validation": {
+        "status": "DENIED",
+        "message": "A consulta est\u00e1 fora do escopo de ci\u00eancia, f\u00edsica, qu\u00edmica, biologia ou ENEM."
+    },
+    "tokens used": 496
+}

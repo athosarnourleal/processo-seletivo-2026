@@ -1,0 +1,8 @@
+{
+    "raw_query_input": "bom dia, posso fazer algumas perguntas?",
+    "query_validation": {
+        "status": "DONE",
+        "message": "Bom dia! Sim, pode fazer suas perguntas."
+    },
+    "tokens used": 557
+}
