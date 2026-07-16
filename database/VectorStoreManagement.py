@@ -13,18 +13,25 @@ from pathlib import Path
 from langchain_core.documents import Document
 import chromadb
 
-import tiktoken
-
-# embeddings
+# embeddings GOOGLE
 from google.genai.types import ContentEmbedding
 from google.genai.models import types
 from google import genai
 
+# embeddings OpenAI
 from openai import OpenAI
 from openai.types import Embedding
 
+import tiktoken
+
 # debug
 from docs.TraceManager import addToTraceJson
+
+def printBarProgress(current: int, total: int, label: str = "progress", width: int = 100) -> None:
+    progress = int((current*width)/total)
+    left = width - progress
+    percent = int((current*width)/total)
+    print(f"{label}: ","#"*progress,"-"*left,f"{percent}% done",sep = "")
 
 class VectorStoreManager:
     """manages the chroma database"""
@@ -87,6 +94,9 @@ class VectorStoreManager:
             docs.append(doc.page_content)
             metadatas.append(doc.metadata)
             embeddings.append(self.vectorizeTextOpenAi(text= doc.page_content))
+
+            printBarProgress(current= count, total= len(langchain_documents), label="embedding")
+
 
         # print(f"ids:{len(ids)} \ndocs:{len(docs)} \nmetadatas:{len(metadatas)} \nvectors:{len(embeddings)}")
 
@@ -207,8 +217,7 @@ class VectorStoreManager:
 
         return chunks
 
-
 # instantiate in global scope
-vector_store_manager = VectorStoreManager()
+# vector_store_manager = VectorStoreManager()
 
 

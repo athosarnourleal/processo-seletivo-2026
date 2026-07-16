@@ -84,7 +84,7 @@ def runIngestionPipeline():
     # create vector database in the persistent client
     vector_store_manager.addToVectorStore(langchain_documents= chunks)
 
-    token_number = vector_store_manager.getTokenNumber()
+    token_number = vector_store_manager.getTokensSpent()
 
     print(f"INGESTION COMPLETE!\n(spent a total of {token_number} tokens)")
 
