@@ -42,19 +42,19 @@ AnswerValidationAgent.validateAnswer()          ./agents/QueryValidationAgent.py
 <img src="/retrieval_pipeline.png" width="100%">
 
 ## AGENTES BASEADOS EM LLM
-### #QueryValidationAgent:
+### # QueryValidationAgent:
 recebe uma query principal e retorna um de três tipos de resposta:
 
 - **PROCEED**: continua a pipeline e reformula a query(correção de erros, clarificar ambiguidades e adaptar formato para maior facilidade de pesquisa)
 - **DENIED**: termina a execução e retorna uma explicação do por que foi rejeitado(query contém linguagem ofensiva, query não é legivel ou query está fora do escopo)
 - **DONE**: finaliza a execução em casos onde a query contem apenas mensagens basicas como saudações ou desculpas, retornando uma resposta sem precisar acionar o resto da pipeline
 
-### #MainAgent:
+### # MainAgent:
 recebe o **contexto**(chunks resultados da busca) e a **query reformulada** e, baseado neles, executa as funçoes de:
 - acionar a pesquisa web como forma de fallback
 - gerar a resposta(baseado no contexto ou na pesquisa web)
 
-### #AnswerValidationAgent:
+### # AnswerValidationAgent:
 recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como "valid" ou "invalid", retornando ou True ou o a explicação do por que foi invalidado
 
 requisitos para uma resposta válida:
@@ -95,7 +95,7 @@ OPENAI_API_KEY='insira sua key aqui'
 # web search
 TAVILY_API_KEY='insira sua key aqui'
 ```
-- criar o venv e baixar os requirements nele
+- criar o virtual environment e baixar importar packages do `requirements.txt` nele
 ``` bash
 # criar e acessar venv
 python3 -m venv venv
@@ -119,6 +119,9 @@ métrica de avaliação:
 - query deve ser respondida **completamente** pela resposta gerada
 - resposta deve ser fiel à documentação retornada da pesquisa dos documentos ou da pesquisa web
 - resposta deve citar as fontes usadas na sua construção(fontes essas que devem estar presentes nos documentos ou na pesquisa web)
+- documentos/web search resgatados devem, quando possível, ser correlacionados à query
+
+como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo, foram as que fizeram mais sentido
 
 ## DECISOES TECNICAS E SEUS TRADE-OFFS
 
@@ -148,8 +151,8 @@ a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do
 
 ## CUSTO POR EXECUÇÃO
 **ingestion pipeline**
-- custo em tokens: 262178 tokens
+- custo em tokens(OpenAI): 262178 tokens / ingestion
   
 **retrieval pipeline(custo estimado)**
-- média de tokens gastos ~= 36304.4 tokens
-- tokens do tavily(quando ativado) ~= 2 créditos
+- média de tokens gastos ~= 36304,4 tokens / retrieval pipeline
+- tokens do tavily(quando ativado) = 2 créditos / ativação
