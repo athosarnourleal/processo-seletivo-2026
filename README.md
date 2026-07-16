@@ -115,7 +115,7 @@ python3 ./database/ingestion_pipeline.py
 streamlit run ./interface/app.py
 ```
 ## BENCHMARKS E AVALIAÇÃO
-métrica de avaliação:
+as métrica de avaliação que usei para validar as respostas do sistema foi:
 - query deve ser respondida **completamente** pela resposta gerada
 - resposta deve ser fiel à documentação retornada da pesquisa dos documentos ou da pesquisa web
 - resposta deve citar as fontes usadas na sua construção(fontes essas que devem estar presentes nos documentos ou na pesquisa web)
@@ -123,12 +123,12 @@ métrica de avaliação:
 
 como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo, foram as que fizeram mais sentido
 
-## DECISOES TECNICAS E SEUS TRADE-OFFS
+## DECISÕES TÉCNICAS E SEUS TRADE-OFFS
 
 ### Agente Próprio ao inves de agentes baseados em frameworks
-durante o desenvolvimento, diversos erros foram causados pelos novos funcionamentos introduzidos no framework langchain v1.0, esse fator, aliado com a ausência de materiais de ensino atualizados, tornou a opção de criar a classe BasicGoogleGenAIAgent mais viável e conveniente, decisão que foi sustentada, também, pela maior liberdade e controle na pipeline de execução da IA
+durante o desenvolvimento, decidi me voltar ao framework do langchain pois ele aparentava ser mais acessível, entretanto diversos erros foram causados pelos novos funcionamentos introduzidos no framework langchain v1.0, esse fator, aliado com a ausência de materiais de ensino atualizados, tornou a opção de criar a classe BasicGoogleGenAIAgent(com apenas algumas ferramentas de langchain) mais viável do que reaprender outro framework do zero. Além disso, criar um agente sem framework proporcionou maior liberdade e aprendizado acerca da execução das LLMs
 
-Trade-offs: ter que trabalhar diretamente com o google acabou exigindo um maior estudo sobre o funcionamento das IA's, o que acabou trazendo atrito principalmente na integração de tools(especialmente o Tavily Search) e, assim, atrasando o desenvolvimento
+Trade-offs: ter que trabalhar diretamente com o google genai acabou exigindo um maior estudo sobre o funcionamento das IA's, o que acabou trazendo atrito principalmente na integração de tools(principalmente Tavily Search) e isso levou a atrasos no desnenvolvimento    
 
 ### Ingestão de pdfs que não inclui as imagens
 durante o projeto tentei implementar a leitura de pdf que incluía imagens, entretanto o alto custo em tokens utilizados por todos os métodos que achei acabou dificultando muito os testes, logo optei por uma extração somente de texto baseada em pypdf
