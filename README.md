@@ -132,7 +132,7 @@ durante o projeto tentei implementar a leitura de pdf que incluía imagens, entr
 
 Trade-offs: essa situação limitando a quantidade de pdfs que funcionariam devidamente na ingestão
 
-## justificativa para o Corpus
+## JUSTIFICATIVA PARA O CORPUS
 
 ### Por que esse corpus e o que ele representa como problema real?
 escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas áreas de ciencias exatas. Situação essa que, além de frequente, é um obstaculo muito grande nos estudos do aluno, o que faz com que ferramentas que auxiliem esse processo sejam extremamente valirizadas
