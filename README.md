@@ -139,5 +139,5 @@ a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do
 - custo em tokens: ???? tokens
 - custo monetário: US$ 0.03
 **retrieval pipeline(custo estimado)**
-- run normal ~= ????? tokens
-- fallback(quando ativado) ~= 2 créditos da Tavily
+- média de tokens gastos ~= 36304.4 tokens
+- tokens do tavily(quando ativado) ~= 2 créditos
