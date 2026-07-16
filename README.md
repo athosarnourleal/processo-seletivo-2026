@@ -64,7 +64,7 @@ requisitos para uma resposta válida:
 ## FERRAMENTAS
 
 ### • TavilySearch(langchain tool)
-realiza a pesquisa na web com base na query e na classificação
+realiza a pesquisa na web com base na query e na classificação 
 
 ### • VectorStoreManager
 Funções principais:
@@ -84,7 +84,7 @@ Funções principais:
 git clone https://github.com/athosarnourleal/processo-seletivo-2026.git
 cd processo-seletivo-2026
 ```
-- preencher o **.env** no mesmo formato do **.env_example**
+- renomear o **.env_example** para **.env** e preencher com as chaves
 ``` env
 # ai agents
 GOOGLE_API_KEY='insira sua key aqui'
@@ -105,7 +105,7 @@ source venv/bin/activate
 # baixar requirements
 pip install -r ./requirements.txt
 ```
-## rodando codigos
+## RODANDO CÓDIGO
 ``` bash
 # run ingestion pipeline
 python3 ./database/ingestion_pipeline.py
@@ -114,6 +114,11 @@ python3 ./database/ingestion_pipeline.py
 # run streamlit interface
 streamlit run ./interface/app.py
 ```
+## BENCHMARKS E AVALIAÇÃO
+métrica de avaliação:
+- query deve ser respondida **completamente** pela resposta gerada
+- resposta deve ser fiel à documentação retornada da pesquisa dos documentos ou da pesquisa web
+- resposta deve citar as fontes usadas na sua construção(fontes essas que devem estar presentes nos documentos ou na pesquisa web)
 
 ## DECISOES TECNICAS E SEUS TRADE-OFFS
 
@@ -144,7 +149,6 @@ a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do
 ## CUSTO POR EXECUÇÃO
 **ingestion pipeline**
 - custo em tokens: 262178 tokens
-- custo monetário: US$ 0.03
   
 **retrieval pipeline(custo estimado)**
 - média de tokens gastos ~= 36304.4 tokens
