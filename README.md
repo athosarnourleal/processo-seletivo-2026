@@ -133,3 +133,10 @@ em alguns casos algumas perguntas que poderiam ser resolvidas com apenas o docum
 ### Por que esse corpus permite exercitar todas as partes obrigatórias do desafio, incluindo o fallback?
 a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do ENEM facilita muito a seleção dos documentos do corpus, além disso essa diponibilidade também aumenta as chances da busca web achar resultados melhores
 
+## CUSTO POR EXECUÇÃO
+**ingestion pipeline**
+- custo em tokens: ???? tokens
+- custo monetário: US$ 0.03
+**retrieval pipeline(custo estimado)**
+- run normal ~= ????? tokens
+- fallback(quando ativado) ~= 2 créditos da Tavily
