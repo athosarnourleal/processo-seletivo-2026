@@ -120,6 +120,7 @@ as métrica de avaliação que usei para validar as respostas do sistema foi:
 - resposta deve ser fiel à documentação retornada da pesquisa dos documentos ou da pesquisa web
 - resposta deve citar as fontes usadas na sua construção(fontes essas que devem estar presentes nos documentos ou na pesquisa web)
 - documentos/web search resgatados devem, quando possível, ser correlacionados à query
+- 
 como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo, foram as que fizeram mais sentido
 
 ## DECISÕES TÉCNICAS E SEUS TRADE-OFFS
