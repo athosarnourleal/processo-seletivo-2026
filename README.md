@@ -2,10 +2,12 @@
 
 um sistema multi agente em python criado com base em persistent client Chromadb, streamlit e langchain para o processo seletivo do grupo LAPES da faculdade CESUPA
 
-## RETRIEVAL PIPELINE
-<img src="/retrieval_pipeline.png" width="75%">
+- autor: Athor Arnour Leal
+- trilha escolhida: dados/IA
+- email: athosarnourleal@gmail.com
+- telefone: (91)98512-4864
 
-**MAIN PIPELINE**
+## RETRIEVAL PIPELINE
 ```
 app.py          ./interface/app.py
     |
@@ -34,6 +36,10 @@ AnswerValidationAgent.validateAnswer()          ./agents/QueryValidationAgent.py
     Returns:  True -> finish return explanation
               "invalid" -> finish returning reason for denial
 ```
+
+### DIAGRAMA GRÁFICO
+
+<img src="/retrieval_pipeline.png" width="75%">
 
 ## AGENTES BASEADOS EM IA
 - QueryValidationAgent
@@ -126,6 +132,4 @@ em alguns casos algumas perguntas que poderiam ser resolvidas com apenas o docum
 
 ### Por que esse corpus permite exercitar todas as partes obrigatórias do desafio, incluindo o fallback?
 a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do ENEM facilita muito a seleção dos documentos do corpus, além disso essa diponibilidade também aumenta as chances da busca web achar resultados melhores
-
-
 
