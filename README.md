@@ -111,19 +111,19 @@ streamlit run ./interface/app.py
 ## DECISOES TECNICAS E SEUS TRADE-OFFS
 
 ### Agente Próprio ao inves de agentes langchain
-durante o desenvolvimento diversos erros foram causados pelos novos funcionamentos introduzidos no langchain v1.0, isso, esse fator, aliado com a escasses de materiais de ensino atualizados, tornando a opção de criar a classe BasicGoogleGenAIAgent a mais viável, principalmente devido a maior liberdade e controle na pipeline de execução da IA(ainda assim usei o langchain.tools e langchain.messages principalmente por conveniencia)
+durante o desenvolvimento, diversos erros foram causados pelos novos funcionamentos introduzidos no langchain v1.0, esse fator, aliado com a escasses de materiais de ensino atualizados, tornou a opção de criar a classe BasicGoogleGenAIAgent mais viável e conveniente, decisão que foi sustentada, também, pela maior liberdade e controle na pipeline de execução da IA
 
 Trade-offs: ter que trabalhar diretamente com o google acabou exigindo um maior estudo sobre o funcionamento das IA's, o que acabou trazendo atrito principalmente na integração de tools(especialmente o Tavily Search) e, assim, atrasando o desenvolvimento
 
 ### Ingestão de pdfs que não inclui as imagens
-durante o projeto implementei a leitura de pdf que incluía imagens, entretanto o alto custo em tokens utilizados por todos os métodos que achei acabou dificultando muito os testes, logo optei por uma extração simples de pdf do pypdf e removi a função de leitura de imagens
+durante o projeto tentei implementar a leitura de pdf que incluía imagens, entretanto o alto custo em tokens utilizados por todos os métodos que achei acabou dificultando muito os testes, logo optei por uma extração somente de texto baseada em pypdf
 
-Trade-offs: acabei limitando a quantidade de pdfs que funcionariam devidamente na ingestão
+Trade-offs: essa situação limitando a quantidade de pdfs que funcionariam devidamente na ingestão
 
 ## justificativa para o Corpus
 
 ### Por que esse corpus e o que ele representa como problema real?
-escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas áreas de ciencias exatas, situação essa que não se limita apenas à um caso isolado, mas sim é um fenômeno frequente na sociedade atual
+escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas áreas de ciencias exatas. Situação essa que, além de frequente, é um obstaculo muito grande nos estudos do aluno, o que faz com que ferramentas que auxiliem esse processo sejam extremamente valirizadas
 
 ### Como a combinação RAG e busca web resolve algo que nenhum dos dois sozinho resolve bem nesse domínio?
 o sistem RAG e a pesquisa web são um contunto que traz uma ótima complementaridade, o sistema RAG(quando apresentado com documentações certificadas) reduz os problemas relacionados à fontes não confiaveis que surgem quando se depende apenas da pesquisa web e a busca web também complementa o conjunto ao eliminar o principal problema de sistemas RAG de baixa escala como o do projeto: a quantidade limitada de dados, a qual pode levar em muitos casos à lacunas nas respostas.
