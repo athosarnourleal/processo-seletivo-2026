@@ -107,11 +107,11 @@ pip install -r ./requirements.txt
 ```
 ## RODANDO CÓDIGO
 ``` bash
-# run ingestion pipeline
+# rodar ingestion pipeline
 python3 ./database/ingestion_pipeline.py
 ```
 ```bash
-# run streamlit interface
+# rodar interface streamlit
 streamlit run ./interface/app.py
 ```
 ## BENCHMARKS E AVALIAÇÃO
