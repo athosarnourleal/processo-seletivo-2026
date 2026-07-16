@@ -41,11 +41,7 @@ AnswerValidationAgent.validateAnswer()          ./agents/QueryValidationAgent.py
 
 <img src="/retrieval_pipeline.png" width="75%">
 
-## AGENTES BASEADOS EM IA
-- QueryValidationAgent
-- MainAgent
-- AnswerValidationAgent
-
+## AGENTES BASEADOS EM LLM
 ### • QueryValidationAgent:
 recebe uma query principal e retorna uma de três tipos de resposta(em forma de json):
 
@@ -116,13 +112,14 @@ durante o desenvolvimento diversos erros foram causados pelos novos funcionament
 Trade-offs: ter que trabalhar diretamente com o google acabou exigindo um maior estudo sobre o funcionamento das IA's, o que acabou trazendo atrito principalmente na integração de tools(especialmente o Tavily Search) e, assim, atrasando o desenvolvimento
 
 ### Ingestão de pdfs que não inclui as imagens
-durante o projeto implementei a leitura de pdf que incluía imagens, entretanto o alto custo em tokens necessário acabou dificultando muito os testes, logo optei por uma extração simples de pdf do pypdf e removi a função de leitura de imagens
+durante o projeto implementei a leitura de pdf que incluía imagens, entretanto o alto custo em tokens utilizados por todos os métodos que achei acabou dificultando muito os testes, logo optei por uma extração simples de pdf do pypdf e removi a função de leitura de imagens
 
 Trade-offs: acabei limitando a quantidade de pdfs que funcionariam devidamente na ingestão
 
 ## justificativa para o Corpus
+
 ### Por que esse corpus e o que ele representa como problema real?
-escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas areas de ciencias exatas, situação essa que não se limita apenas à um caso isolado, mas sim é um fenômeno frequente na sociedade atual
+escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas áreas de ciencias exatas, situação essa que não se limita apenas à um caso isolado, mas sim é um fenômeno frequente na sociedade atual
 
 ### Como a combinação RAG e busca web resolve algo que nenhum dos dois sozinho resolve bem nesse domínio?
 o sistem RAG e a pesquisa web são um contunto que traz uma ótima complementaridade, o sistema RAG(quando apresentado com documentações certificadas) reduz os problemas relacionados à fontes não confiaveis que surgem quando se depende apenas da pesquisa web e a busca web também complementa o conjunto ao eliminar o principal problema de sistemas RAG de baixa escala como o do projeto: a quantidade limitada de dados, a qual pode levar em muitos casos à lacunas nas respostas.
