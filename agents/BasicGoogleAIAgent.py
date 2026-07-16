@@ -36,19 +36,21 @@ class BasicGoogleGenAIAgent:
         return tool_message
 
     def invoke(self,
-        query: str,
-        context: list | str | None = None
+        query: str | None = None,
+        context: list | str | None = None,
+        messages: list | None = None
     ) -> AIMessage:
         """invoke llm either as a simple text-only call, or as a call based on tool responses"""
 
-        # gather messages
-        messages: list = [self.SYSTEM_PROMPT]
-        if context is str:
-            messages.append(SystemMessage(content=str(context)))
-        elif context is not None:
-            for message in context:
-                messages.append(message)
-        messages.append(HumanMessage(content=query))
+        # gather messages(when needed)
+        if messages is None:
+            messages: list = [self.SYSTEM_PROMPT]
+            if context is str:
+                messages.append(SystemMessage(content=str(context)))
+            elif context is not None:
+                for message in context:
+                    messages.append(message)
+            messages.append(HumanMessage(content=query))
 
         # text only invoke
         if self.llm_with_tools is None:
