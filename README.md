@@ -39,7 +39,7 @@ AnswerValidationAgent.validateAnswer()          ./agents/QueryValidationAgent.py
 
 ### DIAGRAMA GRÁFICO
 
-<img src="/retrieval_pipeline.png" width="75%">
+<img src="/retrieval_pipeline.png" width="100%">
 
 ## AGENTES BASEADOS EM LLM
 ### #QueryValidationAgent:
