@@ -122,8 +122,8 @@ métrica de avaliação:
 
 ## DECISOES TECNICAS E SEUS TRADE-OFFS
 
-### Agente Próprio ao inves de agentes langchain
-durante o desenvolvimento, diversos erros foram causados pelos novos funcionamentos introduzidos no langchain v1.0, esse fator, aliado com a escasses de materiais de ensino atualizados, tornou a opção de criar a classe BasicGoogleGenAIAgent mais viável e conveniente, decisão que foi sustentada, também, pela maior liberdade e controle na pipeline de execução da IA
+### Agente Próprio ao inves de agentes baseados em frameworks
+durante o desenvolvimento, diversos erros foram causados pelos novos funcionamentos introduzidos no framework langchain v1.0, esse fator, aliado com a ausência de materiais de ensino atualizados, tornou a opção de criar a classe BasicGoogleGenAIAgent mais viável e conveniente, decisão que foi sustentada, também, pela maior liberdade e controle na pipeline de execução da IA
 
 Trade-offs: ter que trabalhar diretamente com o google acabou exigindo um maior estudo sobre o funcionamento das IA's, o que acabou trazendo atrito principalmente na integração de tools(especialmente o Tavily Search) e, assim, atrasando o desenvolvimento
 
