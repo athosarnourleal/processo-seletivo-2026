@@ -31,13 +31,13 @@ ONLY on the given context and the web search results
 2. in cases where you are NOT ABLE answer the query you must:
     - if available, you must call the web search tool
     - if the web search tool is unavailable, you must try to explain why you could not answer the query
-3. if possible to answer(even partially) the query, you must then answer it.
+3. if possible to answer the query, you must then provide a detailed answer for it.
 
 RULES:
 - when possible to answer question, you NEED to include source citations
-- you must include NO extras(like signatures), ONLY the answer and the source citations
+- you must include Only the answer and the source citations
 - do not include markdown fences
-- answer must have the same language as the query
+- answer and sources must have the same language as the query
             """,
             tools=[search_tool]
         )
