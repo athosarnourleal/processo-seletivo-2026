@@ -109,7 +109,8 @@ pip install -r ./requirements.txt
 ``` bash
 # run ingestion pipeline
 python3 ./database/ingestion_pipeline.py
-
+```
+```bash
 # run streamlit interface
 streamlit run ./interface/app.py
 ```
