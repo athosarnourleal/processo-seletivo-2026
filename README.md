@@ -11,7 +11,7 @@ um sistema multi agente em python criado com base em persistent client Chromadb,
 ```
 app.py          ./interface/app.py
     |
-    |
+    | 
     v
 runRetrievalPipeline()          ./run/retrievalPipeline.py
     |
@@ -42,20 +42,24 @@ AnswerValidationAgent.validateAnswer()          ./agents/QueryValidationAgent.py
 <img src="/retrieval_pipeline.png" width="75%">
 
 ## AGENTES BASEADOS EM LLM
-### • QueryValidationAgent:
-recebe uma query principal e retorna uma de três tipos de resposta(em forma de json):
+### #QueryValidationAgent:
+recebe uma query principal e retorna um de três tipos de resposta:
 
-- **PROCEED**: continua a pipeline retornando a query reformulada(erros corrigidos, ambiguidades clarificadas e formato adaptado para pesquisa facilitada)
-- **DENIED**: termina a execução e retorna uma explicação do por que foi rejeitado
-- **DONE**: finaliza a execução em casos onde a query contem apenas coisas basicas como saudações ou desculpas, retornando uma resposta sem acionar o resto da pipeline
+- **PROCEED**: continua a pipeline e reformula a query(correção de erros, clarificar ambiguidades e adaptar formato para maior facilidade de pesquisa)
+- **DENIED**: termina a execução e retorna uma explicação do por que foi rejeitado(query contém linguagem ofensiva, query não é legivel ou query está fora do escopo)
+- **DONE**: finaliza a execução em casos onde a query contem apenas mensagens basicas como saudações ou desculpas, retornando uma resposta sem precisar acionar o resto da pipeline
 
-### • MainAgent:
+### #MainAgent:
 recebe o **contexto**(chunks resultados da busca) e a **query reformulada** e, baseado neles, executa as funçoes de:
 - acionar a pesquisa web como forma de fallback
-- gerar a resposta(baseado no contexto pesquisa web)
+- gerar a resposta(baseado no contexto ou na pesquisa web)
 
-### • AnswerValidationAgent:
-recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como "valid" ou "invalid", retornando ou True
+### #AnswerValidationAgent:
+recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como "valid" ou "invalid", retornando ou True ou o a explicação do por que foi invalidado
+
+requisitos para uma resposta válida:
+- a resposta responde completamente a pergunta
+- a resposta apresenta as fontes usadas na sua construção
 
 ## FERRAMENTAS
 
