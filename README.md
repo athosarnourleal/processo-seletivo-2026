@@ -136,8 +136,9 @@ a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do
 
 ## CUSTO POR EXECUÇÃO
 **ingestion pipeline**
-- custo em tokens: ???? tokens
+- custo em tokens: 262178 tokens
 - custo monetário: US$ 0.03
+  
 **retrieval pipeline(custo estimado)**
 - média de tokens gastos ~= 36304.4 tokens
 - tokens do tavily(quando ativado) ~= 2 créditos
