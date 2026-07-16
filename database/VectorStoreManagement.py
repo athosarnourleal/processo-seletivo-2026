@@ -218,6 +218,6 @@ class VectorStoreManager:
         return chunks
 
 # instantiate in global scope
-# vector_store_manager = VectorStoreManager()
+vector_store_manager = VectorStoreManager()
 
 
