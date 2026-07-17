@@ -144,19 +144,19 @@ diversos exemplos de perguntas(tanto de validação, quanto de teste) e suas res
 ## DECISÕES TÉCNICAS E SEUS TRADE-OFFS
 
 ### Agente Próprio ao inves de agentes baseados em frameworks
-durante o desenvolvimento, decidi me voltar ao framework do langchain pois ele aparentava ser mais acessível, entretanto diversos erros foram causados pelos novos funcionamentos introduzidos no framework langchain v1.0, esse fator, aliado com a ausência de materiais de ensino atualizados, tornou a opção de criar a classe BasicGoogleGenAIAgent(com apenas algumas ferramentas de langchain) mais viável do que reaprender outro framework do zero. Além disso, criar um agente sem framework proporcionou maior liberdade e aprendizado acerca da execução das LLMs
+durante o desenvolvimento, decidi me voltar ao framework do langchain pois ele aparentava ser mais acessível, entretanto diversos erros foram causados pelos novos funcionamentos introduzidos no framework langchain v1.0, esse fator, aliado com a ausência de materiais de ensino atualizados, tornou a opção de criar a classe BasicGoogleGenAIAgent(com apenas algumas ferramentas de langchain) mais viável do que reaprender outro framework do zero. Além disso, criar um agente sem framework proporcionou maior liberdade e aprendizado acerca da execução das LLMs.
 
-Trade-offs: ter que trabalhar diretamente com o google genai acabou exigindo um maior estudo sobre o funcionamento das IA's, o que acabou trazendo atrito principalmente na integração de tools(principalmente Tavily Search) e isso levou a atrasos no desnenvolvimento    
+Trade-offs: ter que trabalhar diretamente com o google genai acabou exigindo um maior estudo sobre o funcionamento das IA's, o que acabou trazendo atrito principalmente na integração de tools(principalmente Tavily Search) e isso levou a atrasos no desnenvolvimento.
 
 ### Ingestão de pdfs que não inclui as imagens
-durante o projeto tentei implementar a leitura de pdf que incluía imagens, entretanto o alto custo em tokens utilizados por todos os métodos que achei acabou dificultando muito os testes, logo optei por uma extração somente de texto baseada em pypdf
+durante o projeto tentei implementar a leitura de pdf que incluía imagens, entretanto o alto custo em tokens utilizados por todos os métodos que tentei acabou dificultando muito os testes, logo optei por uma extração somente de texto baseada em pypdf.
 
-Trade-offs: essa situação limitando a quantidade de pdfs que funcionariam devidamente na ingestão
+Trade-offs: essa situação limitando a quantidade de pdfs que funcionariam devidamente na ingestão.
 
 ## JUSTIFICATIVA PARA O CORPUS
 
 ### Por que esse corpus e o que ele representa como problema real?
-escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas áreas de ciencias exatas. Situação essa que, além de frequente, é um obstaculo muito grande nos estudos do aluno, o que faz com que ferramentas que auxiliem esse processo sejam extremamente valirizadas
+escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas áreas de ciencias exatas. Situação essa que, além de frequente, é um obstaculo muito grande nos estudos do aluno, o que faz com que ferramentas que auxiliem esse processo sejam extremamente valirizadas.
 
 ### Como a combinação RAG e busca web resolve algo que nenhum dos dois sozinho resolve bem nesse domínio?
 o sistem RAG e a pesquisa web são um contunto que traz uma ótima complementaridade, o sistema RAG(quando apresentado com documentações certificadas) reduz os problemas relacionados à fontes não confiaveis que surgem quando se depende apenas da pesquisa web e a busca web também complementa o conjunto ao eliminar o principal problema de sistemas RAG de baixa escala como o do projeto: a quantidade limitada de dados, a qual pode levar em muitos casos à lacunas nas respostas.
@@ -165,7 +165,7 @@ o sistem RAG e a pesquisa web são um contunto que traz uma ótima complementari
 em alguns casos algumas perguntas que poderiam ser resolvidas com apenas o documento acabam ativando uma pesquisa web mesmo assim, isso ocorre pois muitas vezes subtópicos de uma matéria acabam por ser desconectados do título dela durante o processo de chunking, isso é um problema que poderia ser corridigo pelo aumento do tamanho dos chunks ou dos overlaps entre chunks, entretanto decidi não aplicar esses métodos de correção para não aumentar o número de tokens de cada run do sistema.
 
 ### Por que esse corpus permite exercitar todas as partes obrigatórias do desafio, incluindo o fallback?
-a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do ENEM facilita muito a seleção dos documentos do corpus, além disso essa diponibilidade também aumenta as chances da busca web achar resultados melhores
+a imensa disponibilidade de documentos de livre uso relacionados aos assuntos do ENEM facilita muito a seleção dos documentos do corpus, além disso essa diponibilidade e acessibilidade também aumenta as chances da busca web achar resultados melhores.
 
 ## CUSTO POR EXECUÇÃO
 **ingestion pipeline**
