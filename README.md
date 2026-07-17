@@ -140,7 +140,8 @@ as métrica de avaliação que usei para validar(manualmente) as respostas do si
 
 como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo(inspiradas nas metricas do RAGAS), foram as que fizeram mais sentido
 ```
-diversos exemplos de perguntas(tanto de validação, quanto de teste) e suas respostas foram documentados em: ./docs/question_examples.txt
+diversos exemplos de perguntas(tanto de validação, quanto de teste)
+e suas respostas foram documentados em: ./eval/documented_question_examples.txt
 ```
 ### avaliação automatizada com llm-as-judge
 o sistema de avaliação automática implementado funciona por meio da leitura do `trace.json` de uma pipeline já realizada, os dados são então dados para um EvalAgent
