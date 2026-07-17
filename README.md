@@ -1,6 +1,6 @@
 # RAG MULTI AGENT PROJECT
 
-um sistema multi agente em python criado com base em persistent client Chromadb(com embeddings OpenAi), streamlit e googleGenAi para o processo seletivo do grupo LAPES da faculdade CESUPA
+um sistema multi-agente em python criado com base em persistent client Chromadb(com embeddings OpenAi), streamlit e googleGenAi para o processo seletivo do grupo LAPES da faculdade CESUPA
 
 - autor: Athor Arnour Leal
 - trilha escolhida: dados/IA
@@ -8,7 +8,7 @@ um sistema multi agente em python criado com base em persistent client Chromadb(
 - telefone: (91)98512-4864
 
 ## RETRIEVAL PIPELINE
-```
+``` python
 app.py          ./interface/app.py
     |
     | 
@@ -35,6 +35,11 @@ MainAgent.answerQuery()          ./agents/MainAgent.py
 AnswerValidationAgent.validateAnswer()          ./agents/QueryValidationAgent.py
     Returns:  True -> finish return explanation
               "invalid" -> finish returning reason for denial
+
+    |
+    |  
+    v
+app.py          ./interface/app.py
 ```
 
 ### DIAGRAMA GRÁFICO
@@ -65,7 +70,7 @@ recebe o **contexto**(chunks resultados da busca) e a **query reformulada** e, b
 
 ### # AnswerValidationAgent:
 recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como "valid" ou "invalid", retornando:
-- True (quando "valido")
+- `True` (quando "valido")
 - pedido de desculpas para o usuario explicando do por que foi invalidado(quando "invalido")
 
 requisitos para uma resposta válida:
