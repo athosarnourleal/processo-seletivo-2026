@@ -1,6 +1,8 @@
-# VALIDAÇÃO: ---------------------------------------------------------------------------------------------------------------------
+# VALIDAÇÃO: ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-1)
+1) o que é matéria?
+Resposta:
+- a matéria é tudo aquilo que possui peso e ocupa um lugar no espaço
 
 2) Quais são as principais características do modelo atômico de Rutherford-Bohr?
 Resposta:
@@ -20,8 +22,9 @@ Resposta:
 - mutualismo é uma relação ecológica harmonica que consiste em um relacionamento que dois seres vivos trazem impactos positivos esseniais para o outro,
 ao ponto que um dos dois não pode plenamente existir sem o outro
 
-5)
+5) quais são os principais fenômenos luminosos
 Resposta:
+- os principais fenômenos luminosos são: absorção, reflexão e refração
 
 --- com ativação do fallback --
 
@@ -41,34 +44,41 @@ Resposta:
 - a energia potencial é uma forma de energia que representa a capacidade de um corpo de realizar trabalho
 - ela pode ser transformada em outros tipos de energia, principalmente energia cinética
 
-4) Quais são as 3 leis de newton?
+4) quais são as principais reações inorgânicas?
 Resposta:
-- 1° lei: inércia
-- 2° lei: F = m * a
-- 3° lei: ação e reação
+- Adição
+- Decomposição/Análise
+- Simples Troca
+- Dupla Troca
 
 5) o que são espelhos côncavos e quais são seus efeitos nas imagens refletidas?
 Resposta:
 - espelhos côncavos são espelhos curvados com a parte refletora sendo a parte "interior" da circunferência
 - diferente do espelho convexo, o espelho côncavo pode gerar diversos tipos de imagens dependendo da distância do
 
+# TESTE: -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# TESTE: ---------------------------------------------------------------------------------------------------------------------
-
-1)
+1) o que é um salto quântico?
 Resposta:
+- o salto quantico é um fenômeno em que um elétron pula de uma camada eletrônica para outra, em alguns casos liberando fótons.
 
-2)
+2) quais os nomes dados as relações ecológicas onde nenhum dos envolvidos é prejudicado?
 Resposta:
+- relações ecológicas harmônicas
 
-3)
+3) quais são as principais características do cerrado brasileiro?
 Resposta:
+- Temperatura elevada
+- baixa precipitação
+- vegetais são xerófitos(com caules tortuosos e alguns com espinho)
 
-4)
+4) o que é o equilíbrio térmico?
 Resposta:
+- o equilibrio térmico e o nome dado à situação de dois corpos de temperaturas diferentes trocam calor e atingem, eventualmente, a mesma quantidade de temperatura
 
-5)
+5) o que é um elemento químico?
 Resposta:
+- elemento químico é a denominação dada a um grupo de átomos que possuem o mesmo número atômico
 
 --- com fallback --
 
@@ -93,5 +103,3 @@ Resposta:
 Resposta:
 - espelhos côncavos são espelhos curvados com a parte refletora sendo a parte "interior" da circunferência
 - esse tipo de espelho causa uma imagem de
-
-
