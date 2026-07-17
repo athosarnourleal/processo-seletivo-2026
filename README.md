@@ -153,8 +153,13 @@ durante o projeto tentei implementar a leitura de pdf que incluía imagens, entr
 
 Trade-offs: essa situação limitando a quantidade de pdfs que funcionariam devidamente na ingestão.
 
-## JUSTIFICATIVA PARA O CORPUS
-tema do corpus: química, física e biologia par o Enem
+## CORPUS E JUSTIFICATIVA JUSTIFICATIVA
+tema do corpus: química, física e biologia para o Enem
+```
+Apostila-Física.pdf                              --> Física
+EBOOK - Desvendando os desafios do ENEM.pdf      --> Química
+enemem100dias-apostila-biologia.pdf              --> Biologia
+```
 
 ### Por que esse corpus e o que ele representa como problema real?
 escolhi principalmente por entender a dificuldade que muitos alunos têm em relação às matérias do ENEM, principalmente nas áreas de ciencias exatas. Situação essa que, além de frequente, é um obstaculo muito grande nos estudos do aluno, o que faz com que ferramentas que auxiliem esse processo sejam extremamente valirizadas.
