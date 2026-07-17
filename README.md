@@ -141,13 +141,6 @@ como o sistema RAG que produzi possui uma pipeline mais simplificada, essas mét
 
 diversos exemplos de perguntas(tanto de validação, quanto de teste) e suas respostas estão presentes em: `./docs/question_examples.txt`
 
-### TABELA DE AVALIAÇÃO:
-| CRITÉRIOS          | DESCRIÇÃO           | VALOR |
-|--------------------|---------------------|-------|
-|fidelidade          |                     |  2    |
-|                    |                     |  2    |
-|                    |                     |  2    |
-|                    |                     |  2    |
 ## DECISÕES TÉCNICAS E SEUS TRADE-OFFS
 
 ### Agente Próprio ao inves de agentes baseados em frameworks
