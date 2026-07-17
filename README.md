@@ -159,12 +159,16 @@ o resultado é, por fim, exportado para um csv que contém:
 |  faithfullness       | 10.0  | passed |
 |  content_precision   | 10.0  | passed |
 |  answer_relevancy    | 10.0  | passed |
+```
+OBS: o threshold para aprovação é de 7.0 pontos
+```
 ### rodando a avaliação automática
+para rodar a avaliação é antes necessario um trace existente na pasta `./docs/`, por fim é necessário apenas rodar o seguinte comando no console:
 ``` bash
 python3 ./eval/evaluate.py "nome do trace"
 ```
 como no exemplo:
-```
+``` bash
 python3 ./eval/evaluate.py "trace_example04.json"
 ```
 que resultou no arquivo `trace_example04(eval).csv`
