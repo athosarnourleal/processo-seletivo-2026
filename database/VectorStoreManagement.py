@@ -66,6 +66,8 @@ class VectorStoreManager:
     # MAIN FUNCTIONS
 
     def searchQuery(self, query: str):
+        """embeds query and performs cosine similarity search to find correlated texts"""
+
         # embed query
         embedded_query = self.vectorizeTextOpenAi(text= query)
 
@@ -82,7 +84,9 @@ class VectorStoreManager:
         return chunk_context
 
     def addToVectorStore(self, langchain_documents: list[Document]):
-        print("number of documents:", len(langchain_documents))
+        """embbeds and indexes document before adding it to the collecion"""
+
+        print("document number to be embedded:", len(langchain_documents))
 
         # extract, index and embed chunks
         ids = []
@@ -96,9 +100,6 @@ class VectorStoreManager:
             embeddings.append(self.vectorizeTextOpenAi(text= doc.page_content))
 
             printBarProgress(current= count, total= len(langchain_documents), label="embedding")
-
-
-        # print(f"ids:{len(ids)} \ndocs:{len(docs)} \nmetadatas:{len(metadatas)} \nvectors:{len(embeddings)}")
 
         if len(ids) != len(embeddings):
             raise "embedding number is different of the id number"
@@ -117,6 +118,8 @@ class VectorStoreManager:
         return self.collection
 
     def getTokensSpent(self) -> int:
+        """adds the number of tokens spent in the ingestion to the trace.json and returns that number"""
+
         addToTraceJson({"tokens spent in ingestion": self.tokens_spent})
         return self.tokens_spent
 
@@ -177,12 +180,15 @@ class VectorStoreManager:
             encoding_name: str = "cl100k_base"  # basic encoding for OpenAi
     ) -> int:
         """Returns the number of tokens in a text string."""
+
         encoding = tiktoken.get_encoding(encoding_name)
         num_tokens = len(encoding.encode(string))
         return num_tokens
 
     @staticmethod
     def getEmbeddingsAverage(unclean_embeddings: list[list[float]| None]) -> list[float]:
+        """avareges a series of embeddings into a single vector"""
+
         embeddings = []
 
         # remove null(None) embeddings
@@ -204,7 +210,7 @@ class VectorStoreManager:
 
     @staticmethod
     def reformulateChunksIntoLLMContext(retrieval_response: dict):
-        """adequate the retrieved chunks from chromadb to a more easily readable format"""
+        """formats the retrieved chunks from chromadb to a more easily readable format for the llm"""
 
         texts = retrieval_response["documents"][0]
         metadatas = retrieval_response["metadatas"][0]
