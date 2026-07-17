@@ -50,11 +50,11 @@ app.py          ./interface/app.py
 ### # QueryValidationAgent:
 recebe uma query principal e retorna um de três tipos de resposta:
 
-- **PROCEED**: continua a pipeline e reformula a query(correção de erros, clarificar ambiguidades e adaptar formato para maior facilidade de pesquisa)
+- **PROCEED**: continua a pipeline e reformula a query(corrige erros, clarifica ambiguidades e adapta formato para maior facilidade de pesquisa)
 - **DENIED**: termina a execução e retorna uma explicação do por que foi rejeitado(query contém linguagem ofensiva, query não é legivel ou query está fora do escopo)
 - **DONE**: termina a execução em casos onde a query contem apenas mensagens basicas como saudações ou desculpas, retornando uma resposta sem precisar acionar o resto da pipeline
 
-a resposta é concedida no formato de um **json** com os campos: status(`DONE, DENIED ou PROCEED`) e message(query reformulada quando `"PROCEED"`, mensagem respondendo a query quando `"DONE"` ou justificativa do por quê foi a query foi barrada quando `"DENIED"`), segue abaixo um exemplo:
+a resposta é concedida no formato de um **objeto json** com os campos: **"status"**(`DONE, DENIED ou PROCEED`) e **"message"**(query reformulada quando `"PROCEED"`, mensagem respondendo a query quando `"DONE"` ou justificativa do por quê foi a query foi barrada quando `"DENIED"`), segue abaixo um exemplo:
 ``` json
 {
     "status": "DONE",
@@ -63,31 +63,33 @@ a resposta é concedida no formato de um **json** com os campos: status(`DONE, D
 ```
 
 ### # MainAgent:
-recebe o **contexto**(chunks resultados da busca) e a **query reformulada** e, baseado neles, executa as funçoes de:
-- acionar a pesquisa web como forma de fallback
-- gerar a resposta(baseado no contexto ou na pesquisa web)
+recebe o `CONTEXT`, o `CONTEXT FROM WEB SEARCH`(em casos que o fallback é ativado) e a `QUERY`. Baseado nisso, executa as funções de:
+- acionar a pesquisa web como forma de fallback(ela é incorporada como `CONTEXT FROM WEB SEARCH`)
+- gerar a resposta(baseado no `CONTEXT` e no `CONTEXT FROM WEB SEARCH`)
 - citar as fontes usadas na geração da resposta
 
 ### # AnswerValidationAgent:
 recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como `"valid"` ou `"invalid"`, retornando:
-- `True` (quando `"valid"`)
+- `"valid"`(que é então retornado com `True` para a retrieval pipeline)
 - pedido de desculpas para o usuario explicando do por que foi invalidado(quando `"invalid"`)
 
-requisitos para uma resposta `"valid"`:
+requisitos para uma resposta considerada `"valid"`:
 - a resposta responde completamente a pergunta
 - a resposta apresenta as fontes usadas na sua construção
-
+``` 
+OBS: todos os agentes(no fim de suas execuções) guardam seus resultados no trace.json
+```
 ## FERRAMENTAS
 
 ### • TavilySearch(langchain tool)
-realiza a pesquisa na web com base na query e na classificação 
+realiza a pesquisa na web com base na `QUERY` enviada pelo tool call 
 
 ### • VectorStoreManager
 Funções principais:
 - conectar com o Chroma Client
-- cria/conectar a coleção
+- cria/conectar a **coleção**
 - fazer embedding/indexação dos chunks e adicioná-los ao database
-- fazer embedding da query e realizar pesquisa via cosine similarity
+- fazer embedding da query e realizar pesquisa via **cosine similarity**
 
 ## REQUISITOS BÁSICOS
 - conta no `google ai studio`
@@ -132,14 +134,40 @@ streamlit run ./interface/app.py
 ```
 ## BENCHMARKS E AVALIAÇÃO
 as métrica de avaliação que usei para validar(manualmente) as respostas do sistema foram:
-- query deve ser respondida **completamente** pela resposta gerada
-- resposta deve ser fiel à documentação retornada da pesquisa dos documentos ou da pesquisa web
-- resposta deve citar as fontes usadas na sua construção(fontes essas que devem estar presentes nos documentos ou na pesquisa web)
-- documentos/web search resgatados devem, quando possível, ser correlacionados à query
+- `answer_relevancy`: o quão relevante a resposta é para a query
+- `content_precision`: o quão relevante o contexto achado é para a query
+- `faithfullness`: o quão fiel a resposta foi ao contexto proporcionado
 
-como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo, foram as que fizeram mais sentido
+como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo(inspiradas nas metricas do RAGAS), foram as que fizeram mais sentido
+```
+diversos exemplos de perguntas(tanto de validação, quanto de teste) e suas respostas foram documentados em: ./docs/question_examples.txt
+```
+### avaliação automatizada com llm-as-judge
+o sistema de avaliação automática implementado funciona por meio da leitura do `trace.json` de uma pipeline já realizada, os dados são então dados para um EvalAgent
 
-diversos exemplos de perguntas(tanto de validação, quanto de teste) e suas respostas estão presentes em: `./docs/question_examples.txt`
+o EvalAgent retornada a avaliação em formato de um objeto json:
+``` json
+{
+    "faithfullness": <score>,
+    "content_precision": <score>,
+    "answer_relevancy": <score>
+}
+```
+o resultado é, por fim, exportado para um csv que contém:
+|       metric         | score | status |
+|----------------------|-------|--------|
+|  faithfullness       | 10.0  | passed |
+|  content_precision   | 10.0  | passed |
+|  answer_relevancy    | 10.0  | passed |
+### rodando a avaliação automática
+``` bash
+python3 ./eval/evaluate.py "nome do trace"
+```
+como no exemplo:
+```
+python3 ./eval/evaluate.py "trace_example04.json"
+```
+que resultou no arquivo `trace_example04(eval).csv`
 
 ## DECISÕES TÉCNICAS E SEUS TRADE-OFFS
 
