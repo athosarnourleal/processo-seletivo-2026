@@ -8,7 +8,7 @@ um sistema multi-agente em python criado com base em persistent client Chromadb(
 - telefone: (91)98512-4864
 
 ## RETRIEVAL PIPELINE
-``` python
+```
 app.py          ./interface/app.py
     |
     | 
@@ -32,7 +32,7 @@ MainAgent.answerQuery()          ./agents/MainAgent.py
     |
     |
     v
-AnswerValidationAgent.validateAnswer()          ./agents/QueryValidationAgent.py
+AnswerValidationAgent.validateAnswer()          ./agents/AnswerValidationAgent.py
     Returns:  True -> finish return explanation
               "invalid" -> finish returning reason for denial
 
@@ -138,6 +138,8 @@ as métrica de avaliação que usei para validar(manualmente) as respostas do si
 - documentos/web search resgatados devem, quando possível, ser correlacionados à query
 
 como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo, foram as que fizeram mais sentido
+
+diversos exemplos de perguntas(tanto de validação, quanto de teste) e suas respostas estão presentes em: `./docs/question_examples.txt`
 
 ## DECISÕES TÉCNICAS E SEUS TRADE-OFFS
 
