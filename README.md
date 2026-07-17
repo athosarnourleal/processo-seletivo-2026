@@ -54,7 +54,7 @@ recebe uma query principal e retorna um de três tipos de resposta:
 - **DENIED**: termina a execução e retorna uma explicação do por que foi rejeitado(query contém linguagem ofensiva, query não é legivel ou query está fora do escopo)
 - **DONE**: termina a execução em casos onde a query contem apenas mensagens basicas como saudações ou desculpas, retornando uma resposta sem precisar acionar o resto da pipeline
 
-a resposta é concedida no formato de um **json** com os campos: status(`DONE, DENIED ou PROCEED`) e message(query reformulada(`PROCEED`), mensagem respondendo a query(`DONE`) ou justificativa do por quê foi a query foi barrada(`DENIED`)), segue abaixo um exemplo:
+a resposta é concedida no formato de um **json** com os campos: status(`DONE, DENIED ou PROCEED`) e message(query reformulada quando `"PROCEED"`, mensagem respondendo a query quando `"DONE"` ou justificativa do por quê foi a query foi barrada quando `"DENIED"`), segue abaixo um exemplo:
 ``` json
 {
     "status": "DONE",
@@ -69,11 +69,11 @@ recebe o **contexto**(chunks resultados da busca) e a **query reformulada** e, b
 - citar as fontes usadas na geração da resposta
 
 ### # AnswerValidationAgent:
-recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como "valid" ou "invalid", retornando:
-- `True` (quando "valido")
-- pedido de desculpas para o usuario explicando do por que foi invalidado(quando "invalido")
+recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como `"valid"` ou `"invalid"`, retornando:
+- `True` (quando `"valid"`)
+- pedido de desculpas para o usuario explicando do por que foi invalidado(quando `"invalid"`)
 
-requisitos para uma resposta válida:
+requisitos para uma resposta `"valid"`:
 - a resposta responde completamente a pergunta
 - a resposta apresenta as fontes usadas na sua construção
 
