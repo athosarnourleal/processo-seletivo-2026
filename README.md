@@ -1,6 +1,6 @@
 # RAG MULTI AGENT PROJECT
 
-um sistema multi-agente em python criado com base em persistent client Chromadb(com embeddings OpenAi), streamlit e googleGenAi para o processo seletivo do grupo LAPES da faculdade CESUPA
+um sistema multi-agente em python criado com base em persistent client Chromadb(com embeddings OpenAi), streamlit e googleGenAi feito para o processo seletivo do grupo LAPES da faculdade CESUPA
 
 - autor: Athor Arnour Leal
 - trilha escolhida: dados/IA
