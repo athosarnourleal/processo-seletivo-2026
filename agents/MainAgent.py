@@ -70,29 +70,9 @@ RULES:
             context= f"CONTEXT: {context}"
         )
 
-        response_content: str = str(response.content)
+        response_content = self.extractResponseContent(response= response)
+        print("MAIN AGENT:",response_content)
 
-        if response_content[:1] == "[": # if response is a list[dict]
-
-            # format to json and extract
-            response_content = response_content.replace("\'", "\"")
-
-            try:
-                content_dict = json.loads(response_content)[0]
-
-                addToTraceJson({"main_agent_response": content_dict['text']})
-
-                return content_dict['text']
-            except json.JSONDecodeError:
-                print("MAIN AGENT ERROR IN LOADS(RESPONSE_CONTENT)(JSONDecodeError)")
-                print(response_content)
-            except Exception:
-                print("MAIN AGENT ERROR IN LOADS(RESPONSE_CONTENT)(GENERAL EXCEPTION)")
-                print(response_content)
-        else:
-            # response is a simple string
-
-            addToTraceJson({"main_agent_response": response_content})
-            return response_content
+        return response_content
 
 main_agent = MainAgent()

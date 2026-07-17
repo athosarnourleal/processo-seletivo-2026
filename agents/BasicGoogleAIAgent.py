@@ -12,7 +12,7 @@ class BasicGoogleGenAIAgent:
         name: str,
         basic_instructions: str,
         tools: list,
-        model: str= "gemini-2.5-flash"
+        model: str= "gemini-3.5-flash"
     ) -> None:
 
         self.NAME = name
@@ -34,6 +34,25 @@ class BasicGoogleGenAIAgent:
     def formatToolResponse(self, tool_message: ToolMessage) -> AnyMessage:
         """formatação que pode ser customizada pelas classes filho"""
         return tool_message
+
+    @staticmethod
+    def extractResponseContent(response: AIMessage):
+        content = response.content
+        if str(content)[:1] == "[":
+            print("COMPLEXO")
+            print("RAW CONTENT",response.content)
+            # is a complex response
+            content_dict = content[0]
+
+            text = content_dict["text"]
+
+            print("EXTRACTED CONTENT",text)
+
+            return text
+        else:
+            print("SIMPLES")
+            # is a simple response
+            return response.content
 
     def invoke(self,
         query: str | None = None,

@@ -44,8 +44,9 @@ the reformulated query must follow these requirements:
         response = self.invoke(
             query= f"QUERY: {query}\n\n"
         )
+        response_content = self.extractResponseContent(response)
 
-        response_dict = json.loads(str(response.content))
+        response_dict = json.loads(response_content)
 
         addToTraceJson({"query_validation": response_dict})
 
