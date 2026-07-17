@@ -53,7 +53,6 @@ Resposta:
 - diferente do espelho convexo, o espelho côncavo pode gerar diversos tipos de imagens dependendo da distância do
 
 
-
 # TESTE: ---------------------------------------------------------------------------------------------------------------------
 
 1)
@@ -73,20 +72,26 @@ Resposta:
 
 --- com fallback --
 
-1) qual a espécie de tênia que causa a barriga d'agua?
+1) qual a espécie de tênia que causa a Esquistossomose?
 Resposta:
+- a espécie que causa a Esquistossomose é a Schistosoma mansoni
 
 2) como é possivel identificar a função nitrocomposto em uma cadeia orgânica?
 Resposta:
-- um nitrocomposto pode ser identificado através da existencia da estrutura "NO₂" presente em alguma parte da cadeia
+- um nitrocomposto pode ser identificado através da existencia da estrutura "NO2" presente em alguma parte da cadeia
 
 3) o que é isomeria e quais são os principais tipos de isomeria?
 Resposta:
+- a isomeria é o fenomeno onde duas substâncias orgânicas distintas tem a mesma composição química
+- os principais tipos de isomeria são: isomeria de função, isomeria de cadeia, isomeria de posição, Metameria, Tautomeria, isomeria geométrica e isomeria geométrica
 
-4)
+4) o que é equilibrio químico?
 Resposta:
+- equilíbrio quimico de duas relações químicas ocorre quando elas são reversíveis, ele é caracterizado pela velocidade de ambas as reações se equalizando
 
 5) o que é um espelho convexo e qual o impacto que ele tem nas imagens refletidas?
 Resposta:
 - espelhos côncavos são espelhos curvados com a parte refletora sendo a parte "interior" da circunferência
 - esse tipo de espelho causa uma imagem de
+
+
