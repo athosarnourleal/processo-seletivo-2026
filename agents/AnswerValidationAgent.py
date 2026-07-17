@@ -39,10 +39,10 @@ class AnswerValidationAgent(BasicGoogleGenAIAgent):
             query=f"QUESTION: {question} \n\nANSWER: {answer}",
         )
 
-        response_content = self.extractResponseContent(response)
+        content = self.extractResponseContent(response)
 
-        trace_dict = {"response": response_content, "output": ""}
-        if response.content == "valid":
+        trace_dict = {"response": content, "output": ""}
+        if content == "valid":
             trace_dict["output"] = "True"
             addToTraceJson({"answer_validator_output": trace_dict})
 
@@ -51,7 +51,7 @@ class AnswerValidationAgent(BasicGoogleGenAIAgent):
             trace_dict["output"] = f"INVALID:{trace_dict}"
             addToTraceJson({"answer_validator_output": trace_dict})
 
-            return response.content
+            return content
 
 
 answer_validator = AnswerValidationAgent()
