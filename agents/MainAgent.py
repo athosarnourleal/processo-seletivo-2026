@@ -31,13 +31,13 @@ ONLY on the given context and the web search results
 2. in cases where you are NOT ABLE answer the query you must:
     - if available, you must call the web search tool
     - if the web search tool is unavailable, you must try to explain why you could not answer the query
-3. if possible to answer the query, you must then provide a detailed answer for it.
+3. if possible to answer the query using the CONTEXT or the CONTEXT FROM WEB SEARCH, you must then provide a detailed answer for it based on them.
 
 RULES:
 - when possible to answer question, you NEED to include source citations
 - you must include Only the answer and the source citations
 - do not include markdown fences
-- answer and sources must have the same language as the query
+- answer and sources presentation must be have the same language as the query
             """,
             tools=[search_tool]
         )
@@ -69,9 +69,7 @@ RULES:
             query= query,
             context= f"CONTEXT: {context}"
         )
-
         response_content = self.extractResponseContent(response= response)
-        print("MAIN AGENT:",response_content)
 
         return response_content
 
