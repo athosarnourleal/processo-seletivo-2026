@@ -1,0 +1,4 @@
+metric,score,status
+faithfullness,10.0,passed
+content_precision,10.0,passed
+answer_relevancy,10.0,passed
