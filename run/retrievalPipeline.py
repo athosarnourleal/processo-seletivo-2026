@@ -9,6 +9,7 @@ from database.VectorStoreManagement import vector_store_manager
 from docs.TraceManager import addToTraceJson
 
 def runRetrievalPipeline(raw_query: str) -> str:
+    """use retrieval pipeline to answer user query"""
 
     addToTraceJson(addition= {"raw_query_input": raw_query}, clear= True)
 
@@ -48,17 +49,3 @@ def runRetrievalPipeline(raw_query: str) -> str:
     addToTraceJson({"tokens used": query_validator.token_usage + main_agent.token_usage + answer_validator.token_usage})
 
     return response
-
-# EXAMPLE QUESTIONS INVALID/DONE:
-# quantos anos tinha o jogador de Futebol pelé quando ele morreu?
-# bom dia, posso fazer algumas perguntas?
-
-# EXAMPLE QUESTIONS VALID(RAG ONLY):
-# quais as principais caracteristicas do modelo de rutherford borh?
-# o que são piramides ecologicas?
-# qual a relação entre calor e temperatura?
-# o que é o mutualismo?
-# quais são as 3 leis de newton?
-
-# EXAMPLE QUESTION VALID + WEB SEARCH:
-# quais os tipos basicos de radiação? DONE
