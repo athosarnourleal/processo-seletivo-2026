@@ -71,6 +71,8 @@ RULES:
         )
         response_content = self.extractResponseContent(response= response)
 
+        addToTraceJson({"main_agent_response": response_content})
+
         return response_content
 
 main_agent = MainAgent()

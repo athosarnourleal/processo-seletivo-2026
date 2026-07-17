@@ -38,7 +38,6 @@ class AnswerValidationAgent(BasicGoogleGenAIAgent):
         response = self.invoke(
             query=f"QUESTION: {question} \n\nANSWER: {answer}",
         )
-
         content = self.extractResponseContent(response)
 
         trace_dict = {"response": content, "output": ""}
