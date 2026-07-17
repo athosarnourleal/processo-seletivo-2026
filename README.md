@@ -47,15 +47,26 @@ recebe uma query principal e retorna um de três tipos de resposta:
 
 - **PROCEED**: continua a pipeline e reformula a query(correção de erros, clarificar ambiguidades e adaptar formato para maior facilidade de pesquisa)
 - **DENIED**: termina a execução e retorna uma explicação do por que foi rejeitado(query contém linguagem ofensiva, query não é legivel ou query está fora do escopo)
-- **DONE**: finaliza a execução em casos onde a query contem apenas mensagens basicas como saudações ou desculpas, retornando uma resposta sem precisar acionar o resto da pipeline
+- **DONE**: termina a execução em casos onde a query contem apenas mensagens basicas como saudações ou desculpas, retornando uma resposta sem precisar acionar o resto da pipeline
+
+a resposta é concedida no formato de um **json** com os campos: status(`DONE, DENIED ou PROCEED`) e message(query reformulada(`PROCEED`), mensagem respondendo a query(`DONE`) ou justificativa do por quê foi a query foi barrada(`DENIED`)), segue abaixo um exemplo:
+``` json
+{
+    "status": "DONE",
+    "message": "bom dia!"
+}
+```
 
 ### # MainAgent:
 recebe o **contexto**(chunks resultados da busca) e a **query reformulada** e, baseado neles, executa as funçoes de:
 - acionar a pesquisa web como forma de fallback
 - gerar a resposta(baseado no contexto ou na pesquisa web)
+- citar as fontes usadas na geração da resposta
 
 ### # AnswerValidationAgent:
-recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como "valid" ou "invalid", retornando ou True ou o a explicação do por que foi invalidado
+recebe a **query** e a **resposta** gerada pelo Main Agent e então classifica a saida como "valid" ou "invalid", retornando:
+- True (quando "valido")
+- pedido de desculpas para o usuario explicando do por que foi invalidado(quando "invalido")
 
 requisitos para uma resposta válida:
 - a resposta responde completamente a pergunta
@@ -74,9 +85,9 @@ Funções principais:
 - fazer embedding da query e realizar pesquisa via cosine similarity
 
 ## REQUISITOS BÁSICOS
-- conta no google ai studio
-- conta na openai
-- conta no tavily
+- conta no `google ai studio`
+- conta na `openai`
+- conta no `tavily`
 
 ## SETUP DO AMBIENTE
 - realizar o git clone do projeto e entrar na pasta principal
@@ -115,12 +126,12 @@ python3 ./database/ingestion_pipeline.py
 streamlit run ./interface/app.py
 ```
 ## BENCHMARKS E AVALIAÇÃO
-as métrica de avaliação que usei para validar as respostas do sistema foi:
+as métrica de avaliação que usei para validar(manualmente) as respostas do sistema foram:
 - query deve ser respondida **completamente** pela resposta gerada
 - resposta deve ser fiel à documentação retornada da pesquisa dos documentos ou da pesquisa web
 - resposta deve citar as fontes usadas na sua construção(fontes essas que devem estar presentes nos documentos ou na pesquisa web)
 - documentos/web search resgatados devem, quando possível, ser correlacionados à query
-- 
+
 como o sistema RAG que produzi possui uma pipeline mais simplificada, essas métricas, que focam diretamente nas partes mais cruciais do processo, foram as que fizeram mais sentido
 
 ## DECISÕES TÉCNICAS E SEUS TRADE-OFFS
