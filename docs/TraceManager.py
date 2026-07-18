@@ -35,7 +35,7 @@ def loadTraceJson(
 
         return cur_trace
     else:
-        raise f"'{file_name}' is not a existing trace json file'"
+        return {}
 
 def isTraceValid(
         folder_path: Path = Path(__file__).parent.parent / "docs",
